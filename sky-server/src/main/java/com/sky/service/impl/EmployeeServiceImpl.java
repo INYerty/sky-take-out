@@ -106,4 +106,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
+    //账号状态修改
+    @Override
+    public void updateStatus(Integer status, long id) {
+        Employee employee = Employee.builder()
+                            .id(id)
+                            .status(status)
+                            .build();
+        employeeMapper.updateStatus(employee);
+    }
+
+
 }

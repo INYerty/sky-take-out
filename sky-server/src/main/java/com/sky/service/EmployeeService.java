@@ -21,4 +21,6 @@ public interface EmployeeService {
     void save(EmployeeDTO employeeDTO);
     //分页查询
     PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    void updateStatus(Integer status, long id);
 }

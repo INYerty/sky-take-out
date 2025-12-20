@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.github.pagehelper.Page;
+import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
@@ -29,4 +30,8 @@ public interface EmployeeMapper {
 
     //修改员工状态
     void updateStatus(Employee employee);
+
+    Employee getEmpById(Integer id);
+
+    /*void updateEmp(EmployeeDTO employeeDTO);*/
 }

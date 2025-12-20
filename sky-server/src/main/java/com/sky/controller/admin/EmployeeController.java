@@ -117,4 +117,24 @@ public class EmployeeController {
         return Result.success();
     }
 
+    //查询回显:即先根据Id查询员工信息，然后进行回显
+    //首先添加一个根据Id查询员工信息的方法
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查询员工信息")
+    public Result<Employee> getById(@PathVariable Integer id){
+        log.info("根据id查询员工信息 参数为：{}", id);
+        Employee employee = employeeService.getById(id);
+        employee.setPassword("*****");
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    @ApiOperation("修改员工信息")
+    public Result update(@RequestBody EmployeeDTO employeeDTO){
+        log.info("修改员工信息，员工数据：{}", employeeDTO);
+        employeeService.updateEmp(employeeDTO);
+
+        return Result.success();
+    }
+
 }

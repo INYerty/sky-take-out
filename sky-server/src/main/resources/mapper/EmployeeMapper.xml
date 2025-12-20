@@ -15,6 +15,7 @@
     </select>
 
 
+
     <!--修改员工账号状态-->
     <update id="updateStatus" parameterType="Employee">
         update employee
@@ -31,4 +32,23 @@
         </set>
         where id = #{id}
     </update>
+
+
+
+    <!--查询回显：根据ID查询员工信息-->
+    <select id="getEmpById" resultType="com.sky.entity.Employee">
+        select * from employee where id = #{id}
+    </select>
+
+<!--    <update id="updateEmp">
+        update employee
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="username != null">username = #{username},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="idNumber != null">id_number = #{idNumber},</if>
+        </set>
+        where id = #{id}
+    </update>-->
 </mapper>
